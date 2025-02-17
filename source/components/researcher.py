@@ -100,7 +100,7 @@ def create_researcher(selection):
         if not model:
             model = "o1"
         llm = LLM(
-            api_key=os.get.environ("OPENAI_API_KEY"),
+            api_key=os.environ.get("OPENAI_API_KEY"),
             model=f"openai/{model}"
         )
     
