@@ -4,6 +4,10 @@ An advanced research assistant powered by CrewAI, Exa, and Streamlit, designed t
 
 ![CrewAI Logo](https://cdn.prod.website-files.com/66cf2bfc3ed15b02da0ca770/66d07240057721394308addd_Logo%20(1).svg)  
 
+
+**Open it Here!**
+![Open it Here](https://crewai-research-assistant.streamlit.app/)
+
 ![App Screenshot](app.png)  
 
 ## 🌟 Highlights  
