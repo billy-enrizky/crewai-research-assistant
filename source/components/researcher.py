@@ -175,3 +175,25 @@ def create_research_task(researcher, task_description):
         agent=researcher,
         output_file="output/research_report.md"
     )
+    
+#--------------------------------#
+#         Research Crew          #
+#--------------------------------#
+def run_research(researcher, task):
+    """Execute the research task using the configured agent.
+    
+    Args:
+        researcher (Agent): The research agent to perform the task
+        task (Task): The research task to execute
+    
+    Returns:
+        str: The research results in markdown format
+    """
+    crew = Crew(
+        agents=[researcher],
+        tasks=[task],
+        verbose=True,
+        process=Process.sequential
+    )
+    
+    return crew.kickoff()
