@@ -47,3 +47,23 @@ elif selection["provider"] == "GROQ":
     if not os.environ.get("GROQ_API_KEY"):
         st.warning("⚠️ Please enter your GROQ API key in the sidebar to get started")
         st.stop()
+
+# Check EXA key for non-Ollama providers
+if selection["provider"] != "Ollama":
+    if not os.environ.get("EXA_API_KEY"):
+        st.warning("⚠️ Please enter your EXA API key in the sidebar to get started")
+        st.stop()
+        
+# Add Ollama check
+if selection["provider"] == "Ollama" and not selection["model"]:
+    st.warning("⚠️ No Ollama models found. Please make sure Ollama is running and you have models loaded.")
+    st.stop()
+    
+# Create two columns for the input section
+input_col1, input_col2, input_col3 = st.columns([1, 3, 1])
+with input_col2:
+    task_description = st.text_area(
+        "What would you like to research?",
+        value="Research the latest AI Agent news in February 2025 and summarize each.",
+        height=68
+    )
