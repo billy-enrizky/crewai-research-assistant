@@ -50,3 +50,20 @@ class StreamlitProcessOutput:
             
             # Update the display
             self.container.text(self.output_text)
+    
+    def flush(self):
+        pass
+    
+@contextmanager
+def capture_output(container):
+    string_io = StringIO()
+    output_handler = StreamlitProcessOutput(container=container)
+    old_stdout = sys.stdout
+    sys.stdout = output_handler
+    try:
+        yield string_io
+    finally:
+        sys.stdout = old_stdout
+
+# Export the capture_output function
+__all__ = ['capture_output']
